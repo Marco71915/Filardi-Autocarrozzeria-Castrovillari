@@ -62,12 +62,18 @@
     Seguici su Instagram
   </div>
 
-  <div class="link-button" id="facebookButton" role="button" tabindex="0">
+  <!-- Bottone Facebook (link diretto al profilo web) -->
+  <a class="link-button" href="https://www.facebook.com/filardicarrozzeria?locale=it_IT" target="_blank">
     <img class="icon" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
     Seguici su Facebook
-  </div>
+  </a>
 
   <script>
+    document.getElementById('instagramButton').addEventListener('click', function () {
+      openAppOrWeb('instagram://user?username=carrozzeriafilardi', 'https://www.instagram.com/carrozzeriafilardi/');
+    });
+
+    // Funzione generica per tentare apertura app + fallback web
     function openAppOrWeb(appUrl, webUrl) {
       const start = Date.now();
       window.location = appUrl;
@@ -78,14 +84,6 @@
         }
       }, 1000);
     }
-
-    document.getElementById('facebookButton').addEventListener('click', function () {
-      openAppOrWeb('fb://page/100076305543697', 'https://www.facebook.com/filardicarrozzeria?locale=it_IT');
-    });
-
-    document.getElementById('instagramButton').addEventListener('click', function () {
-      openAppOrWeb('instagram://user?username=carrozzeriafilardi', 'https://www.instagram.com/carrozzeriafilardi/');
-    });
   </script>
 </body>
 </html>
